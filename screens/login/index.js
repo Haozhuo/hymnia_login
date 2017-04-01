@@ -61,7 +61,7 @@ export default class LoginScreen extends Component {
           </View>
           <View style={styles.container}>
             <View style={styles.signupWrap}>
-              <Text style={styles.accountText}>Don't have an account?</Text>
+              <Text style={styles.accountText}>Do not have an account?</Text>
               <TouchableOpacity activeOpacity={.5}>
                 <View>
                   <Text style={styles.signupLinkText}>Sign Up</Text>

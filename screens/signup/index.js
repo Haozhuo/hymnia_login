@@ -36,11 +36,6 @@ export default class SignupVriew extends Component {
 
             <View style={styles.headerIconView}>
               <TouchableOpacity style={styles.headerBackButtonView}>
-                <Image
-                  source={backIcon}
-                  style={styles.backButtonIcon}
-                  resizeMode="contain"
-                />
               </TouchableOpacity>
             </View>
 
@@ -127,56 +122,78 @@ export default class SignupVriew extends Component {
     else{
         return(
             <View style={styles.container}>
-              <Image source={background} style={styles.background} resizeMode="cover">
-                <View style={styles.markWrap}>
-                  <Image source={mark} style={styles.mark} resizeMode="contain" />
-                </View>
-                <View style={styles.wrapper}>
-                  <View style={styles.inputWrap}>
-                    <View style={styles.iconWrap}>
-                      <Image source={personIcon} style={styles.icon} resizeMode="contain" />
-                    </View>
-                    <TextInput
-                      placeholder="Username"
-                      placeholderTextColor="#FFF"
-                      style={styles.input}
-                    />
-                  </View>
-                  <View style={styles.inputWrap}>
-                    <View style={styles.iconWrap}>
-                      <Image source={lockIcon} style={styles.icon} resizeMode="contain" />
-                    </View>
-                    <TextInput
-                      placeholderTextColor="#FFF"
-                      placeholder="Password"
-                      style={styles.input}
-                      secureTextEntry
-                    />
-                  </View>
-                  <TouchableOpacity activeOpacity={.5}>
-                    <View>
-                      <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-                    </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={.5}>
-                    <View style={styles.button}>
-                      <Text style={styles.buttonText}>Sign In</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.container}>
-                  <View style={styles.signupWrap}>
-                    <Text style={styles.accountText}>Do not have an account?</Text>
-                    <TouchableOpacity activeOpacity={.5}>
-                      <View>
-                        <Text style={styles.signupLinkText}
-                        onPress={()=>{
-                            this.setState({"where":"SignUp"})
-                        }}
-                        >Sign Up</Text>
-                      </View>
+              <Image
+                source={background}
+                style={[styles.container, styles.bg]}
+                resizeMode="cover"
+              >
+                <View style={styles.headerContainer}>
+
+                  <View style={styles.headerIconView}>
+                    <TouchableOpacity style={styles.headerBackButtonView}>
                     </TouchableOpacity>
                   </View>
+
+                  <View style={styles.headerTitleView}>
+                    <Text style={styles.titleViewText}>Log in</Text>
+                  </View>
+
+                </View>
+
+                <View style={styles.inputsContainer}>
+
+                  <View style={styles.inputContainer}>
+                    <View style={styles.iconContainer}>
+                      <Image
+                        source={personIcon}
+                        style={styles.inputIcon}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <TextInput
+                      style={[styles.input, styles.whiteFont]}
+                      placeholder="Name"
+                      placeholderTextColor="#FFF"
+                      underlineColorAndroid='transparent'
+                    />
+                  </View>
+
+                  <View style={styles.inputContainer}>
+                    <View style={styles.iconContainer}>
+                      <Image
+                        source={lockIcon}
+                        style={styles.inputIcon}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <TextInput
+                      secureTextEntry={true}
+                      style={[styles.input, styles.whiteFont]}
+                      placeholder="Password"
+                      placeholderTextColor="#FFF"
+                    />
+                  </View>
+
+
+                </View>
+
+                <View style={styles.footerContainer}>
+
+                  <TouchableOpacity>
+                    <View style={styles.signup}>
+                      <Text style={styles.whiteFont}>Log in</Text>
+                    </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <View style={styles.signin}>
+                      <Text style={styles.greyFont}>Did not have an account?<Text style={styles.whiteFont}
+                      onPress={()=>{
+                          this.setState({"where":"SignUp"})
+                      }}
+                      > Sign Up</Text></Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
               </Image>
             </View>
@@ -270,7 +287,11 @@ let styles = StyleSheet.create({
   },
   whiteFont: {
     color: '#FFF'
-},
+}
+});
+
+
+const styles1 = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -340,4 +361,4 @@ let styles = StyleSheet.create({
     color: "#FFF",
     marginLeft: 5,
   }
-})
+});
