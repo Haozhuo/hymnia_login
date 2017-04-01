@@ -21,7 +21,11 @@ const mark = require("./login1_mark.png");
 export default class SignupVriew extends Component {
   constructor(props){
       super(props);
-      this.state = {"where":"SignUp"};
+      this.state = {"where":"SignUp",
+                    "userName":"",
+                    "userEmail":"",
+                    "userPassword":""};
+      this.ip = "http://138.68.240.72/login";
   }
   render() {
     if(this.state.where == "SignUp"){
@@ -75,7 +79,7 @@ export default class SignupVriew extends Component {
                 style={[styles.input, styles.whiteFont]}
                 placeholder="Email"
                 placeholderTextColor="#FFF"
-              />
+             />
             </View>
 
             <View style={styles.inputContainer}>
@@ -155,6 +159,23 @@ export default class SignupVriew extends Component {
                       placeholder="Name"
                       placeholderTextColor="#FFF"
                       underlineColorAndroid='transparent'
+                      onChangeText={(text) => {this.state.userName=text}}
+                    />
+                  </View>
+
+                  <View style={styles.inputContainer}>
+                    <View style={styles.iconContainer}>
+                      <Image
+                        source={emailIcon}
+                        style={styles.inputIcon}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <TextInput
+                      style={[styles.input, styles.whiteFont]}
+                      placeholder="Email"
+                      placeholderTextColor="#FFF"
+                      onChangeText={(text) => {this.state.userEmail=text}}
                     />
                   </View>
 
@@ -171,6 +192,7 @@ export default class SignupVriew extends Component {
                       style={[styles.input, styles.whiteFont]}
                       placeholder="Password"
                       placeholderTextColor="#FFF"
+                      onChangeText={(text) => {this.state.userPassword=text}}
                     />
                   </View>
 
@@ -179,9 +201,24 @@ export default class SignupVriew extends Component {
 
                 <View style={styles.footerContainer}>
 
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                  onPress={()=>{
+                      fetch(this.ip, {
+                          method: 'POST',
+                          headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            username: this.state.userName,
+                            email: this.state.userEmail,
+                            userPassword: this.state.userPassword
+                          })
+                      });
+                  }}
+                  >
                     <View style={styles.signup}>
-                      <Text style={styles.whiteFont}>Log in</Text>
+                      <Text style={styles.whiteFont}>Log-in</Text>
                     </View>
                   </TouchableOpacity>
 
