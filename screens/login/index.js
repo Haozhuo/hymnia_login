@@ -31,21 +31,21 @@ export default class LoginScreen extends Component {
               <View style={styles.iconWrap}>
                 <Image source={personIcon} style={styles.icon} resizeMode="contain" />
               </View>
-              <TextInput 
-                placeholder="Username" 
+              <TextInput
+                placeholder="Username"
                 placeholderTextColor="#FFF"
-                style={styles.input} 
+                style={styles.input}
               />
             </View>
             <View style={styles.inputWrap}>
               <View style={styles.iconWrap}>
                 <Image source={lockIcon} style={styles.icon} resizeMode="contain" />
               </View>
-              <TextInput 
+              <TextInput
                 placeholderTextColor="#FFF"
-                placeholder="Password" 
-                style={styles.input} 
-                secureTextEntry 
+                placeholder="Password"
+                style={styles.input}
+                secureTextEntry
               />
             </View>
             <TouchableOpacity activeOpacity={.5}>
